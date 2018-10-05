@@ -16,13 +16,13 @@ class TasksController extends Controller
         return view('tasks.index', compact('tasks'));
     }
 
-    public function show($id){
+    public function show(Task $task){//route model binding
         //    query builder method
-//    $tasks = DB::table('tasks')->find($id);
+//    $task = DB::table('tasks')->find($id);
 //    using Eloquent model
-        $tasks = Task::find($id);
+//        $task = Task::find($id);
 //    dd($tasks);
 
-        return view('tasks.show', compact('tasks'));
+        return view('tasks.show', compact('task'));
     }
 }

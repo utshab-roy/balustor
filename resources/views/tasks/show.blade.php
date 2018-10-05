@@ -8,6 +8,6 @@
     <title>Task</title>
 </head>
 <body>
-    <h2>{{ $tasks->body }}</h2>
+    <h2>{{ $task->body }}</h2>
 </body>
 </html>
