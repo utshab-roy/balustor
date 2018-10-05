@@ -1,12 +1,17 @@
 <?php
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PostController@index');
 
-Route::get('/tasks', 'TasksController@index');
+Route::get('/posts/create', 'PostController@create');
 
-Route::get('/tasks/{task}', 'TasksController@show');
+Route::post('/posts', 'PostController@store');
+
+
+//Route::get('/posts/{post}', 'PostController@show');
+
+
+
+
 
 
