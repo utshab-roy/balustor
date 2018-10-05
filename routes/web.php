@@ -1,30 +1,12 @@
 <?php
 
-use App\Task;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tasks', function () {
+Route::get('/tasks', 'TasksController@index');
 
-//    query builder method
-//    $tasks = DB::table('tasks')->get();
-//    using Eloquent model
-    $tasks = Task::all();
+Route::get('/tasks/{task}', 'TasksController@show');
 
-//    return $tasks;
 
-    return view('tasks.index', compact('tasks'));
-});
-
-Route::get('/tasks/{task}', function ($id) {
-
-//    query builder method
-//    $tasks = DB::table('tasks')->find($id);
-//    using Eloquent model
-    $tasks = Task::find($id);
-//    dd($tasks);
-
-    return view('tasks.show', compact('tasks'));
-});
