@@ -19,6 +19,8 @@ Route::post('/register', 'RegistrationController@store');
 // if I not give the name: ->name('login')  then it will give an error Route [login] not defined
 Route::get('/login', 'SessionsController@create')->name('login');
 
+Route::post('/login', 'SessionsController@store');
+
 Route::get('/logout', 'SessionsController@destroy');
 
 

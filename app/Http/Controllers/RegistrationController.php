@@ -8,6 +8,12 @@ use App\User;
 
 class RegistrationController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
     public function create(){
         return view('registration.create');
     }
@@ -23,7 +29,21 @@ class RegistrationController extends Controller
         ]);
 
 //        create and save the user
-        $user = User::create(request(['name', 'email', 'password']));
+//        dd([
+//          'name' => request('name'),
+//          'email' => request('email'),
+//          'password' => bcrypt(request('password')),
+//        ]);
+
+        $user = User::create(
+//            request(['name', 'email', 'password'])
+            [
+                'name' => request('name'),
+                'email' => request('email'),
+                'password' => bcrypt(request('password')),
+            ]
+
+        );
 //        Post::create(request(['title', 'body']));
 
 //        sign them in.
