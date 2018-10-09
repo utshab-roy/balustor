@@ -3,6 +3,11 @@
 @section('content')
     <div class="col-sm-8 blog-main">
 
+        <p class="blog-post-meta">
+            {{ $post->user->name }} on
+            {{ $post->created_at->toFormattedDateString() }}
+        </p>
+
         <h1>{{ $post->title }}</h1>
 
         {{ $post->body }}
